@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "952765769974",
+    "firebase_url": "https://stitch-260606.firebaseio.com",
+    "project_id": "stitch-260606",
+    "storage_bucket": "stitch-260606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:952765769974:android:0284b1fbbb6d45e72d64d7",
+        "android_client_info": {
+          "package_name": "org.qmlio.stitch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "952765769974-gektkl3fhi1kg07rlsolcso14sm1j32n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuBi6KFcveWa5Qh7M688BdZL9-m58ZOxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "952765769974-gektkl3fhi1kg07rlsolcso14sm1j32n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
