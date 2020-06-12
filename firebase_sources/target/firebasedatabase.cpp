@@ -1,5 +1,5 @@
 #include "firebasedatabase.h"
-#include "../utils/platformutils.h"
+#include "utils/platformutils.h"
 
 #include <QDateTime>
 #include <QDebug>
