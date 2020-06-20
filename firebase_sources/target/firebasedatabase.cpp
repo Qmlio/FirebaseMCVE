@@ -40,11 +40,6 @@ Task *FirebaseDatabase::createTask(FirebaseDatabase::Types _type,
   return tsk;
 }
 
-qint64 FirebaseDatabase::timeStamp() {
-  QDateTime t;
-  return t.currentMSecsSinceEpoch();
-}
-
 void FirebaseDatabase::test(const QVariant &value) {
   qDebug() << value;
   auto future = database->GetReference().Child("test").SetValue(
@@ -53,6 +48,7 @@ void FirebaseDatabase::test(const QVariant &value) {
   auto tsk = createTask(SetValue, future, "testing::Error", 0);
 
   qDebug() << "creating " << tsk->key() << future.status();
+
   mTaskManager->addTask(tsk);
 }
 
@@ -89,16 +85,14 @@ void FirebaseDatabase::finished(Task *tsk) {
     auto future = tsk->getFuture();
     if (future.error() == firebase::database::kErrorNone) {
 
-      if (tsk->key() == currentKey) {
-        switch (tsk->getType()) {
-        case FirebaseDatabase::SetValue: {
-          emit completed(FirebaseDatabase::SetValue, QByteArray());
+      switch (tsk->getType()) {
+      case FirebaseDatabase::SetValue: {
+        emit completed(FirebaseDatabase::SetValue, QByteArray());
 
-        } break;
-        }
-
-        delete tsk;
+      } break;
       }
+
+      delete tsk;
 
     } else {
       setError(future.error(), future.error_message());

@@ -1,8 +1,17 @@
+# This MCVE is only made for android builds
+
 QT += quick
 CONFIG += c++11
-QT += androidextras # add Qt android module
+
+# add Qt android module
+QT += androidextras
+
+# set local path to firebase cpp sdk
 FIREBASE_SDK_PATH = D:\firebase_cpp_sdk
+
+# set modules to be loaded
 QMLIO_FIREBASE_CONFIG += auth database
+
 include(firebase_sources/qmlioFirebase.pri)
 
 # The following define makes your compiler emit warnings if you use

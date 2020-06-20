@@ -1,5 +1,6 @@
 message(Configuring mobile)
 
+# add the firebase include directory
 INCLUDEPATH += $$FIREBASE_SDK_PATH/include
 INCLUDEPATH += $$PWD
 
@@ -21,26 +22,26 @@ message(" Configuring Android. ")
 
 FIREBASE_SDK_LIBS_PREFIX = "firebase_"
 
-#compiling using gcc
+#buiding using gcc
 FIREBASE_SDK_LIBS_PATH = $$FIREBASE_SDK_PATH/libs/android/$$ANDROID_TARGET_ARCH/gnustl
 DEPENDPATH += $$FIREBASE_SDK_LIBS_PATH
 
 
-# Auth
+# configuring Auth
 contains(DEFINES,QMLIO_FIREBASE_AUTH) {
     message( "Including  Firebase Auth for android" )
     PRE_TARGETDEPS += $$FIREBASE_SDK_LIBS_PATH/lib$${FIREBASE_SDK_LIBS_PREFIX}auth.a
     LIBS += -L$$FIREBASE_SDK_LIBS_PATH -l$${FIREBASE_SDK_LIBS_PREFIX}auth
 }
 
-# Database
+# configuring Database
 contains(DEFINES,QMLIO_FIREBASE_DATABASE) {
     message( "Including  Firebase database for android" )
     PRE_TARGETDEPS += $$FIREBASE_SDK_LIBS_PATH/lib$${FIREBASE_SDK_LIBS_PREFIX}database.a
     LIBS += -L$$FIREBASE_SDK_LIBS_PATH -l$${FIREBASE_SDK_LIBS_PREFIX}database
 }
 
-# App
+# configuring App
 contains(DEFINES,QMLIO_FIREBASE_APP) {
     message( "Including  Firebase app for android" )
 LIBS += -L$$FIREBASE_SDK_LIBS_PATH -l$${FIREBASE_SDK_LIBS_PREFIX}app

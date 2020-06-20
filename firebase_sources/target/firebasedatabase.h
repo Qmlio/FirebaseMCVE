@@ -4,9 +4,6 @@
 #include "firebase/database.h"
 #include "utils/firebaseutils.h"
 #include <QObject>
-#include <QQmlListProperty>
-#include <QSharedPointer>
-#include <QThread>
 #include <utils/task.h>
 #include <utils/taskmanager.h>
 
@@ -34,8 +31,6 @@ signals:
   void completed(int type, QByteArray value);
 
 public slots:
-
-  qint64 timeStamp();
   void test(const QVariant &value);
 
 protected slots:
@@ -48,7 +43,7 @@ protected:
 private:
   firebase::database::Database *database = nullptr;
   bool dbReady;
-  QString currentKey;
+
   TaskManager *mTaskManager;
   FirebaseUtils *service;
   Q_DISABLE_COPY(FirebaseDatabase)
